@@ -6,7 +6,7 @@ from sqlalchemy.exc import IntegrityError
 from models import db, User, Product, ProductImage, Cart
 
 app = Flask(__name__)
-app.secret_key = "key"  # Обязательно измените в production!
+app.secret_key = "soijgbOijaodgbsdkjdsojgnkdfj"  # Обязательно измените в production!
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
