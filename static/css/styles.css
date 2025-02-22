@@ -1,0 +1,435 @@
+/* Общие стили для всего документа */
+html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+/* Убираем стандартное подчёркивание у ссылок */
+a {
+    text-decoration: none;
+}
+
+/* Основные стили для body */
+body {
+    margin: 0 175px;
+    font-family: 'Montserrat', 'Arial', sans-serif; /* Основной шрифт Montserrat, запасной Arial */
+    background-image: url(/static/images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Стили для заголовка h1 */
+h1 {
+    padding: 10px 0;
+    font-size: 1.5em;
+}
+
+/* Стили для footer */
+footer {
+    display: block;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 7px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Стили для класса .paragraph */
+.paragraph {
+    font-size: 20px;
+}
+
+/* Стили для класса .text_inside */
+.text_inside {
+    margin: 0 75px 20px; /* Добавлен отступ снизу 20px */
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px; /* Увеличил внутренний отступ для лучшего визуального восприятия */
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Стили для карточки товара */
+.product {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product h3 {
+    margin-top: 0;
+}
+
+.product-actions {
+    margin-top: auto;  /* Кнопка будет прижата к низу */
+    text-align: center;
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: #be408c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    transition: border-radius 0.5s;
+}
+
+.btn-primary:hover {
+    border-radius: 10px;
+    background-color: #9f0060;
+}
+
+/* Стили для фиксированных кнопок */
+.fixed-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: #be408c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #9f0060;
+}
+
+
+
+
+/* Стили для блока .controls */
+.controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Стили для кнопки .btn-logo */
+.btn-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin: 15px 50px;
+    background-color: #fe0098;
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(0.2);
+    height: 10px;
+    width: 40px;
+    font-size: 7px;
+}
+
+/* Стили для контейнера .container */
+.container {
+    max-width: 1190px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* Стили для шапки .header */
+.header {
+    padding-top: 30px;
+}
+
+/* Стили для внутреннего контейнера шапки .header__inner */
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Стили для логотипа .logo */
+.logo {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.2);
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 900;
+    color: #d52cff;
+    font-family: 'Montserrat', sans-serif; /* Шрифт для логотипа */
+}
+
+.logo:hover {
+    transform: scale(1.5);
+}
+
+/* Стили для списка меню .menu__list */
+.menu__list {
+    display: flex;
+    list-style: none;
+}
+
+/* Стили для пунктов меню .menu__list-item */
+.menu__list-item {
+    margin-right: 20px;
+}
+
+/* Стили для ссылок в меню .menu__list-link */
+.menu__list-link {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #dcf5fe;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif; /* Шрифт для ссылок в меню */
+}
+
+.menu__list-link:hover {
+    color: #eb3e30;
+}
+
+/* Стили для основного контента main */
+main {
+    flex: 1;
+}
+
+/* Стили для сетки товаров */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Стили для карточки товара */
+.product {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.product h3 {
+    margin-top: 0;
+}
+
+/* Стили для форм */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+}
+
+form button {
+    padding: 10px;
+    background-color: #be408c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #9f0060;
+}
+
+/* Стили для корзины */
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-items li {
+    background-color: #444;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Стили для страницы товара */
+.product-detail img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Стили для сообщений */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Стили для формы добавления товара */
+.add-product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.add-product-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.add-product-form input,
+.add-product-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+.add-product-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.add-product-form button {
+    padding: 10px;
+    background-color: #be408c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.add-product-form button:hover {
+    background-color: #9f0060;
+}
+
+/* Стили для формы поиска */
+.search-form {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    flex: 1;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #be408c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #9f0060;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    background-color: #be408c;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #9f0060;
+}
+
+.pagination .active {
+    background-color: #9f0060;
+    cursor: default;
+}
+
+.pagination .ellipsis {
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.no-products {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: white; /* Общий цвет для всех состояний ссылки */
+}
