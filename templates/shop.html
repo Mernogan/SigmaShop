@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Магазин - SigmaShop{% endblock %}
+
+{% block content %}
+<div class="text_inside">
+    <h1>Магазин</h1>
+
+    <!-- Форма поиска -->
+    <form method="GET" action="{{ url_for('shop') }}" class="search-form">
+        <input type="text" name="query" placeholder="Поиск по названию" value="{{ request.args.get('query', '') }}">
+        <button type="submit" class="btn-primary">Найти</button>
+    </form>
+
+    <div class="product-grid">
+        {% if products.items %}
+            {% for product in products.items %}
+            <div class="product">
+                <h3><a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.name }}</a></h3>
+                {% if product.images %}
+                <img src="{{ product.images[0].image_path }}" alt="{{ product.name }}" style="max-width: 100px;">
+                {% else %}
+                <p>Изображение отсутствует</p>
+                {% endif %}
+                <p>Цена: {{ product.price }} ₽</p>
+                <div class="product-actions">
+                    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn-primary">В корзину</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-products">Товары не найдены.</p>
+        {% endif %}
+    </div>
+
+    <!-- Пагинация -->
+    <div class="pagination">
+        <!-- Кнопка "Назад" -->
+        {% if products.has_prev %}
+        <a href="{{ url_for('shop', page=products.prev_num, query=request.args.get('query', '')) }}" class="btn-primary">Назад</a>
+        {% endif %}
+
+        <!-- Нумерованные кнопки -->
+        {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+            {% if page_num %}
+                {% if page_num == products.page %}
+                    <a href="{{ url_for('shop', page=page_num, query=request.args.get('query', '')) }}" class="btn-primary active">{{ page_num }}</a>
+                {% else %}
+                    <a href="{{ url_for('shop', page=page_num, query=request.args.get('query', '')) }}" class="btn-primary">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                <span class="ellipsis">...</span>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Кнопка "Вперед" -->
+        {% if products.has_next %}
+        <a href="{{ url_for('shop', page=products.next_num, query=request.args.get('query', '')) }}" class="btn-primary">Вперед</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

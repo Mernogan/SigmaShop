@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - SigmaShop{% endblock %}
+
+{% block content %}
+<div class="text_inside">
+    <h1>{{ product.name }}</h1>
+    {% if product.images %}
+        {% for image in product.images %}
+        <img src="{{ image.image_path }}" alt="{{ product.name }}" style="max-width: 300px;">
+        {% endfor %}
+    {% else %}
+        <p>Изображение отсутствует</p>
+    {% endif %}
+    <p>{{ product.description }}</p>
+    <p>Цена: {{ product.price }} ₽</p>
+    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn-primary">В корзину</a>
+    <a href="{{ url_for('shop') }}" class="btn-primary">Вернуться в магазин</a>
+</div>
+{% endblock %}

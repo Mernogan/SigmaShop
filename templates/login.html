@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход - SigmaShop{% endblock %}
+
+{% block content %}
+<div class="text_inside">
+    <h1>Вход</h1>
+    <form method="POST">
+        <label for="login_input">Имя пользователя или Email:</label>
+        <input type="text" id="login_input" name="login_input" required>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Войти</button>
+        <p>Ещё нет аккаунта? <a href="{{url_for('register')}}">Зарегистрироваться</a></p>
+    </form>
+</div>
+{% endblock %}

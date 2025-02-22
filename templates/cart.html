@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Корзина - SigmaShop{% endblock %}
+
+{% block content %}
+<div class="text_inside">
+    <h1>Корзина</h1>
+    {% if cart_items %}
+    <ul class="cart-items">
+        {% for item in cart_items %}
+        <li>
+            {{ item.product.name }} - {{ item.quantity }} шт. × {{ item.product.price }} ₽ = {{ item.quantity * item.product.price }} ₽
+            <a href="{{ url_for('remove_from_cart', cart_id=item.id) }}" class="btn-primary">Удалить</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p>Итого: {{ total }} ₽</p>
+    {% else %}
+    <p>Ваша корзина пуста.</p>
+    {% endif %}
+    <a href="{{ url_for('shop') }}" class="btn-primary">Продолжить покупки</a>
+</div>
+{% endblock %}

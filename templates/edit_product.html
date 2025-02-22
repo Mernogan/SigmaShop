@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактировать товар - SigmaShop{% endblock %}
+
+{% block content %}
+<div class="text_inside">
+    <h1>Редактировать товар</h1>
+    <form method="POST" enctype="multipart/form-data" class="edit-product-form">
+        <label for="name">Название товара:</label>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required>
+
+        <label for="description">Описание:</label>
+        <textarea id="description" name="description" required>{{ product.description }}</textarea>
+
+        <label for="price">Цена:</label>
+        <input type="number" id="price" name="price" step="0.01" value="{{ product.price }}" required>
+
+        <label for="images">Новые изображения:</label>
+        <input type="file" id="images" name="images" accept="image/*" multiple>
+
+        <button type="submit" class="btn-primary">Сохранить изменения</button>
+    </form>
+</div>
+{% endblock %}
