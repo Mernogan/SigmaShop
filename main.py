@@ -230,4 +230,5 @@ if __name__ == "__main__":
             os.makedirs(app.config['UPLOAD_FOLDER'])
         
         db.create_all()
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 10000))
+    app.run(debug=False, port=port)
